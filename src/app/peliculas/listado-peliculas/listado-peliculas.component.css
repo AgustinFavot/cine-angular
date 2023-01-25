@@ -1,0 +1,30 @@
+.peliculas-contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+}
+
+.pelicula-contenedor {
+    margin-bottom: 10px;
+    margin-right: 2%;
+    text-align: center;
+}
+
+p {
+    margin-top: 20px;
+    max-width: 225px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+image {
+    width: 225px;
+    height: 300px;
+}
+
+button {
+    margin: 1rem;
+}
+
+

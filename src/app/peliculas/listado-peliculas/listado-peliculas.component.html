@@ -1,0 +1,21 @@
+<app-listado-generico [listado]="peliculas">
+    <ng-container vacio>
+        <div>Mensaje personalizado para vacio</div>
+    </ng-container>
+    <ng-container contenido>
+        <div class="peliculas-contenedor">
+            <div *ngFor="let pelicula of peliculas; let index = index" class="pelicula-contenedor">
+               <a>
+                    <img [src]="pelicula.poster" alt="Poster"> 
+               </a> 
+               <p>
+                    <a>{{pelicula.titulo}}</a>
+               </p>
+               <div>
+                    <button mat-raised-button color="primary">Editar</button>
+                    <button mat-raised-button color="accent">Borrar</button>
+               </div>
+            </div>
+        </div>
+    </ng-container>
+</app-listado-generico>

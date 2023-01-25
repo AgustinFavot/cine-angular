@@ -1,0 +1,23 @@
+<div *ngIf="!listado">
+    <span #gif><ng-content select="[gif]"></ng-content></span>
+    <span *ngIf="!gif.innerHTML.trim()">
+        <img
+        src="https://imgs.search.brave.com/Os3q7sNKOLKYLujHCDZ5bp73JkJdLhsnPXNKCrTBTk8/rs:fit:800:600:1/g:ce/aHR0cHM6Ly9pY29u/LWxpYnJhcnkuY29t/L2ltYWdlcy9sb2Fk/aW5nLWljb24tYW5p/bWF0ZWQtZ2lmL2xv/YWRpbmctaWNvbi1h/bmltYXRlZC1naWYt/MTkuanBn"
+        alt=""
+      />
+    </span>
+  
+</div>
+
+<div *ngIf="listado?.length === 0">
+    <span #vacio><ng-content select="[vacio]"></ng-content></span>
+    <span *ngIf="!vacio.innerHTML.trim()">
+        No hay peliculas para mostrar
+    </span>    
+</div>
+
+<ng-container *ngIf="listado">
+  <!--Con el ng container no se agrega al dom-->
+  <!--Voy a inyectar contenido-->
+  <ng-content select="[contenido]"></ng-content>
+</ng-container>

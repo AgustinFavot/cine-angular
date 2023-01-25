@@ -1,0 +1,6 @@
+<mat-icon   *ngFor="let i of arrRating; let index=index" fontIcon="star" 
+            (mouseenter)="mouseEnter(index)" 
+            (mouseleave)="mouseLeave()"
+            [ngClass]="{checked: ratingSelected > index}"
+            (click)="select(index)">
+</mat-icon>
