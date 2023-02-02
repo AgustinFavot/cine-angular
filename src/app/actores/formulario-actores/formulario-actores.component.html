@@ -1,0 +1,20 @@
+<form [formGroup]="form" (submit)="onSubmint()">
+    <mat-form-field appearance="outline">
+        <mat-label>Nombre</mat-label>
+        <input formControlName="nombre" matInput/>       
+        <mat-error>El campo nombre es requerido</mat-error> 
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Apellido</mat-label>
+        <input formControlName="apellido" matInput/>        
+        <mat-error>El campo apellido es requerido</mat-error> 
+    </mat-form-field>
+        <app-input-img></app-input-img>
+        <div>
+            <app-input-markdown></app-input-markdown>
+        </div>
+    <div>
+        <button mat-raised-button color="primary" [disabled]="form.invalid">Guarda</button>        
+    </div>
+</form>
+<!-- Ver tema de datapicker en FormularioActores min 4:28 -->

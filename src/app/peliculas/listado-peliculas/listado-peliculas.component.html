@@ -4,18 +4,36 @@
     </ng-container>
     <ng-container contenido>
         <div class="peliculas-contenedor">
-            <div *ngFor="let pelicula of peliculas; let index = index" class="pelicula-contenedor">
-               <a>
-                    <img [src]="pelicula.poster" alt="Poster"> 
-               </a> 
-               <p>
-                    <a>{{pelicula.titulo}}</a>
-               </p>
-               <div>
+            <mat-card *ngFor="let pelicula of peliculas; let index = index" class="pelicula-contenedor">
+                <img mat-card-image [src]="pelicula.poster" alt="Photo of a Shiba Inu">
+                <mat-card-title>{{pelicula.titulo}}</mat-card-title>
+                <mat-card-content>
+                  <p>
+                    The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+                    A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+                    bred for hunting.
+                  </p>
+                </mat-card-content>
+                <mat-card-actions>
                     <button mat-raised-button color="primary">Editar</button>
                     <button mat-raised-button color="accent">Borrar</button>
-               </div>
-            </div>
+                </mat-card-actions>
+              </mat-card>
         </div>
     </ng-container>
 </app-listado-generico>
+
+
+
+  <!-- <div *ngFor="let pelicula of peliculas; let index = index" class="pelicula-contenedor">
+    <a>
+         <img [src]="pelicula.poster" alt="Poster"> 
+    </a> 
+    <p>
+         <a>{{pelicula.titulo}}</a>
+    </p>
+    <div>
+         <button mat-raised-button color="primary">Editar</button>
+         <button mat-raised-button color="accent">Borrar</button>
+    </div>
+ </div> -->

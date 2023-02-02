@@ -22,6 +22,12 @@ import { EditarActoresComponent } from './actores/editar-actores/editar-actores.
 import { EditarGenerosComponent } from './generos/editar-generos/editar-generos.component';
 import { EditarPeliculasComponent } from './peliculas/editar-peliculas/editar-peliculas.component';
 import { EditarCinesComponent } from './cines/editar-cines/editar-cines.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormularioGeneroComponent } from './generos/formulario-genero/formulario-genero.component';
+import { FiltroPeliculasComponent } from './peliculas/filtro-peliculas/filtro-peliculas.component';
+import { FormularioActoresComponent } from './actores/formulario-actores/formulario-actores.component';
+import { InputImgComponent } from './utilidades/input-img/input-img.component';
+import { InputMarkdownComponent } from './utilidades/input-markdown/input-markdown.component';
 
 
 @NgModule({
@@ -43,13 +49,19 @@ import { EditarCinesComponent } from './cines/editar-cines/editar-cines.componen
     EditarActoresComponent,
     EditarGenerosComponent,
     EditarPeliculasComponent,
-    EditarCinesComponent
+    EditarCinesComponent,
+    FormularioGeneroComponent,
+    FiltroPeliculasComponent,
+    FormularioActoresComponent,
+    InputImgComponent,
+    InputMarkdownComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

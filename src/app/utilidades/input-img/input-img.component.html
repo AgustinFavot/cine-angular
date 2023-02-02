@@ -1,0 +1,6 @@
+<div>
+    <button type="button" mat-raised-button (click)="fileInput.click()">
+        Seleccionar imagen
+    </button>
+    <input type="file" #fileInput hidden (change)="change($event)">
+</div>

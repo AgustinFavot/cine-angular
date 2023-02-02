@@ -1,20 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { actorCreacionDTO } from '../modelo/actor';
 
 @Component({
   selector: 'app-crear-actores',
   templateUrl: './crear-actores.component.html',
   styleUrls: ['./crear-actores.component.css']
 })
-export class CrearActoresComponent implements OnInit {
+export class CrearActoresComponent {
 
   constructor(private router:Router){}
 
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
-
-  guardarCambios(): void {
+  guardarCambios(actor: actorCreacionDTO): void {
+      console.log(actor);
       this.router.navigate(['/actores'])
   }
 }

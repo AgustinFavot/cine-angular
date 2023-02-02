@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { generoCreacionDTO } from '../modelo/genero';
 
 @Component({
   selector: 'app-editar-generos',
@@ -7,4 +9,10 @@ import { Component } from '@angular/core';
 })
 export class EditarGenerosComponent {
 
+  constructor(private router:Router){}
+  
+  guardarCambios(genero: generoCreacionDTO): void {
+    console.log(genero);
+    this.router.navigate(['/generos'])
+  }
 }
