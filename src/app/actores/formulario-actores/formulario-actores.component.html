@@ -9,9 +9,9 @@
         <input formControlName="apellido" matInput/>        
         <mat-error>El campo apellido es requerido</mat-error> 
     </mat-form-field>
-        <app-input-img></app-input-img>
+        <app-input-img (fileSelected)="fileSelected($event)"></app-input-img>
         <div>
-            <app-input-markdown></app-input-markdown>
+            <app-input-markdown (changeMarkDown)="markDown($event)"></app-input-markdown>
         </div>
     <div>
         <button mat-raised-button color="primary" [disabled]="form.invalid">Guarda</button>        

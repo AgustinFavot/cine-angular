@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { actorCreacionDTO } from '../modelo/actor';
+import { actorCreacionDTO, actorDTO } from '../modelo/actor';
 
 @Component({
   selector: 'app-editar-actores',
@@ -9,7 +9,7 @@ import { actorCreacionDTO } from '../modelo/actor';
 })
 export class EditarActoresComponent implements OnInit {
   
-  modelo!: actorCreacionDTO;
+  modelo!: actorDTO;
 
   constructor(private activateRoute: ActivatedRoute){}
   
