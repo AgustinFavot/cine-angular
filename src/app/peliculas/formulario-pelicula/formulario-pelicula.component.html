@@ -1,0 +1,29 @@
+<form [formGroup]="form" (submit)="onSubmint()">
+    <mat-form-field appearance="fill">
+        <mat-label>Titulo</mat-label>
+        <input matInput>
+    </mat-form-field>
+    <div>
+        <mat-checkbox formControlName="enCine">En Cines</mat-checkbox>
+    </div>
+    <div>
+        <app-input-img (fileSelected)="fileSelected($event)"></app-input-img>
+    </div>
+    <div>
+        <app-input-markdown (changeMarkDown)="markDown($event)"></app-input-markdown>
+    </div>
+    <div>
+        <button mat-raised-button color="primary" [disabled]="form.invalid">Guarda</button>        
+    </div>
+    <mat-form-field appearance="fill">
+        <mat-label>Triler</mat-label>
+        <input formControlName="triler" matInput>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Fecha Laznamiento</mat-label>
+        <input formControlName="fechaLanzamiento" matInput [matDatepicker]="date">
+        <mat-datepicker-toggle matSuffix [for]="date"></mat-datepicker-toggle>
+        <mat-datepicker #date></mat-datepicker>
+    </mat-form-field>
+</form>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { PeliculaCreationDTO } from '../DTOs/PeliculaCreationDTO';
 
 @Component({
   selector: 'app-crear-peliculas',
@@ -14,7 +15,7 @@ export class CrearPeliculasComponent implements OnInit {
     throw new Error('Method not implemented.');
   }
 
-  guardarCambios(): void {
-      this.router.navigate([''])
+  guardarCambios(pelicula: PeliculaCreationDTO): void {
+      console.log(pelicula);
   }
 }
