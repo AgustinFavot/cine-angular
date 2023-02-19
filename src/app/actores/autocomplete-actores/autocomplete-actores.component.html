@@ -1,0 +1,52 @@
+<form class="example-form">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Seleccionar Autores</mat-label>
+      <input type="text" matInput [formControl]="formControl" [matAutocomplete]="auto">
+      <mat-autocomplete #auto (optionSelected)="optionSelected($event)">
+        <mat-option *ngFor="let option of actores" [value]="option">
+          <img [src]="option.foto"> {{option.nombre}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+
+  <div *ngIf="actoresSeleccionados.length > 0">
+    <!-- dataSoruce: origen de datos para cargar la tabla-->
+    <!-- Dado que la tabla se optimiza para el rendimiento, no verificará automáticamente los cambios en la matriz de datos
+    Se puede llamar al metodo renderRows() para desencadenar una actualización e la tabla-->
+    <table mat-table [dataSource]="actoresSeleccionados" >
+
+        <!-- Columna de posición --> 
+        <ng-container matColumnDef="key">
+            <th mat-header-cell *matHeaderCellDef> Nro </th>
+            <td mat-cell *matCellDef="let element">{{element.key}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="foto">
+            <th mat-header-cell *matHeaderCellDef> Foto </th>
+            <td mat-cell *matCellDef="let element"> 
+                <img [src]="element.foto" style="width: 50px;">
+            </td>
+        </ng-container> 
+
+        <ng-container matColumnDef="nombre">
+            <th mat-header-cell *matHeaderCellDef> Nombre </th>
+            <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+        </ng-container>        
+
+        <ng-container matColumnDef="personaje">
+            <th mat-header-cell *matHeaderCellDef> Personaje</th>
+            <td mat-cell *matCellDef="let element"> {{element.personaje}} </td>
+        </ng-container>     
+
+        <ng-container matColumnDef="acciones">
+            <th mat-header-cell *matHeaderCellDef> Acciones</th>
+            <td mat-cell *matCellDef="let element" class="acciones"> 
+                <button mat-raised-button color="accent" (click)="eliminar(element.key)">Eliminar</button>              
+            </td>
+        </ng-container>     
+        
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>

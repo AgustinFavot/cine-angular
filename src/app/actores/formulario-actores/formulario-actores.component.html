@@ -11,7 +11,7 @@
     </mat-form-field>
         <app-input-img (fileSelected)="fileSelected($event)"></app-input-img>
         <div>
-            <app-input-markdown (changeMarkDown)="markDown($event)"></app-input-markdown>
+            <app-input-markdown (changeMarkDown)="markDown($event)" [placeHolderTextArea]='placeHolder'></app-input-markdown>
         </div>
     <div>
         <button mat-raised-button color="primary" [disabled]="form.invalid">Guarda</button>        

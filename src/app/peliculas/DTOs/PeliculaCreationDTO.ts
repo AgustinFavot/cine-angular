@@ -1,9 +1,19 @@
 export interface PeliculaCreationDTO 
 {
-    titulo: String;
-    resumen: String;
+    titulo: string;
+    resumen: string;
     triler: string;
     enCine: Boolean;
-    poster: String;
+    poster: File;
     fechaLanzamiento: Date;    
+}
+
+export interface PeliculaDTO 
+{
+    titulo: string;
+    resumen: string;
+    triler: string;
+    enCine: Boolean;
+    poster: string;
+    fechaLanzamiento?: Date;    
 }

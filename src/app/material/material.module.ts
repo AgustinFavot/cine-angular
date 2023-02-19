@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MarkdownModule } from 'ngx-markdown';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule, FormControl } from '@angular/forms';
 
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
@@ -14,13 +14,16 @@ import {MatCardModule} from'@angular/material/card';
 import {MatTabsModule} from'@angular/material/tabs';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    MarkdownModule.forRoot()
+    MarkdownModule.forRoot(),
+    FormsModule /*Binding de doble via*/
   ], 
   exports:[
     MatToolbarModule,
@@ -35,6 +38,9 @@ import { MatNativeDateModule } from '@angular/material/core';
     MarkdownModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatAutocompleteModule,
+    FormsModule,
+    MatTableModule
   ]
 })
 export class MaterialModule { }

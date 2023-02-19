@@ -12,6 +12,8 @@ export class FormularioActoresComponent implements OnInit{
 
   form!: FormGroup;
 
+  placeHolder: string = "Biografia";
+
   @Output()
   submit: EventEmitter<actorCreacionDTO> = new EventEmitter<actorCreacionDTO>
 

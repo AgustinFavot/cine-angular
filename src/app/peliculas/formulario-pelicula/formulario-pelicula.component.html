@@ -1,19 +1,16 @@
 <form [formGroup]="form" (submit)="onSubmint()">
     <mat-form-field appearance="fill">
         <mat-label>Titulo</mat-label>
-        <input matInput>
+        <input matInput formControlName="titulo">
     </mat-form-field>
     <div>
         <mat-checkbox formControlName="enCine">En Cines</mat-checkbox>
     </div>
     <div>
-        <app-input-img (fileSelected)="fileSelected($event)"></app-input-img>
+        <app-input-img (fileSelected)="fileSelected($event)" [urlImg]="modelo?.poster"></app-input-img>
     </div>
     <div>
-        <app-input-markdown (changeMarkDown)="markDown($event)"></app-input-markdown>
-    </div>
-    <div>
-        <button mat-raised-button color="primary" [disabled]="form.invalid">Guarda</button>        
+        <app-input-markdown (changeMarkDown)="markDown($event)" [placeHolderTextArea]='placeHolder' [markDownContent]="modelo?.resumen"></app-input-markdown>
     </div>
     <mat-form-field appearance="fill">
         <mat-label>Triler</mat-label>
@@ -26,4 +23,14 @@
         <mat-datepicker-toggle matSuffix [for]="date"></mat-datepicker-toggle>
         <mat-datepicker #date></mat-datepicker>
     </mat-form-field>
+
+
+    <app-selector-multiple [deseleccionados]="generosNoSeleccionados" [seleccionados]="generosSeleccionados"></app-selector-multiple>
+
+
+    <app-autocomplete-actores></app-autocomplete-actores>
+
+    <div>
+        <button mat-raised-button color="primary" [disabled]="form.invalid">Guarda</button>        
+    </div>
 </form>

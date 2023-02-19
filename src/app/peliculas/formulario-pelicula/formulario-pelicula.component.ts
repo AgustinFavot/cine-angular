@@ -1,6 +1,7 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { PeliculaCreationDTO } from '../DTOs/PeliculaCreationDTO';
+import { MultipleSelectorModelo } from 'src/app/utilidades/selector-multiple/MultipleSelectorModelo';
+import { PeliculaCreationDTO, PeliculaDTO } from '../DTOs/PeliculaCreationDTO';
 
 @Component({
   selector: 'app-formulario-pelicula',
@@ -12,8 +13,24 @@ export class FormularioPeliculaComponent implements OnInit{
   /*Variables*/
   form!: FormGroup; 
 
-  @Output()
+  placeHolder: string = "Resumen";
+
+  @Input() /* Lo que entra */
+  modelo?: PeliculaDTO;
+
+  @Output()/* Lo que sale */
   submit: EventEmitter<PeliculaCreationDTO> = new EventEmitter<PeliculaCreationDTO>();
+
+  generosNoSeleccionados: MultipleSelectorModelo[] = [
+    {key: 1, value:"Comedia"},
+    {key: 2, value:"Terror"},
+    {key: 3, value:"Drama"},
+    {key: 4, value:"Accion"},
+    {key: 5, value:"Aventura"}
+  ]
+
+  generosSeleccionados: MultipleSelectorModelo[] = [];
+
 
   /*Constructor */
   constructor(private formBuilder: FormBuilder){}
@@ -27,8 +44,15 @@ export class FormularioPeliculaComponent implements OnInit{
       triler:['',],
       enCine:['',], 
       poster:['',],
-      fechaLanzamiento:['',]
+      fechaLanzamiento:['',],
+      generosId: ''
     });
+
+    if(this.modelo !== undefined)
+    {
+      console.log(this.modelo)
+      this.form.patchValue(this.modelo);
+    }    
   }
 
   markDown(texto: string){
@@ -40,6 +64,8 @@ export class FormularioPeliculaComponent implements OnInit{
   }
 
   onSubmint(){
+    const generosId = this.generosSeleccionados.map(val => val.key)
+    this.form.get('generosId')?.setValue(generosId)    
     this.submit.emit(this.form.value);
   }
 }

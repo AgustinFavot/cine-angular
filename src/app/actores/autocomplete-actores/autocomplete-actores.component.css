@@ -1,0 +1,16 @@
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+
+  img {
+    vertical-align: middle;
+    margin-right: 8px;
+    width: 35px;
+    height: 45px;
+  }
