@@ -1,7 +1,7 @@
 .peliculas-contenedor {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
+    display: flex; /*contenedor flexible*/
+    flex-wrap: wrap; /*De forma predeterminada los elementos intentaran encajar en una sola linea, wrap: los elementos flexibles se ajustarán a varias línea*/
+    flex-direction: row; /* direccion en la que se colocan los articulos en el contenedor flexible*/
     align-items: center;
 }
 
