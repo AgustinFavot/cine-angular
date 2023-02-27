@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { generoCreacionDTO } from '../modelo/genero';
@@ -11,8 +11,14 @@ import { generoCreacionDTO } from '../modelo/genero';
 
 export class FormularioGeneroComponent implements OnInit{
   
+  @Input()
+  modelo: generoCreacionDTO;
+
+  @Input()
+  errores: string[] = [];
+
   @Output()
-  submit: EventEmitter<generoCreacionDTO> = new EventEmitter<generoCreacionDTO>
+  onSubmit: EventEmitter<generoCreacionDTO> = new EventEmitter<generoCreacionDTO>
 
   form!: FormGroup;
 
@@ -27,7 +33,7 @@ export class FormularioGeneroComponent implements OnInit{
   }
 
   guardarCambios(){
-      this.submit.emit(this.form.value);
+      this.onSubmit.emit(this.form.value);
   }
 
   obtenerErrorCampoNombre(): String {
@@ -43,5 +49,4 @@ export class FormularioGeneroComponent implements OnInit{
     
     return '';
   }
-
 }
