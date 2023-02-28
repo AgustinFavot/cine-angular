@@ -1,6 +1,6 @@
 export interface actorDTO{
     nombre: String;
-    apelliodo: String;
+    apellido: String;
     biografia: string;
     foto: string;
 }
@@ -8,7 +8,7 @@ export interface actorDTO{
 
 export interface actorCreacionDTO{
     nombre: String;
-    apelliodo: String;
+    apellido: String;
     biografia: string;
     foto: File;
 }

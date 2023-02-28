@@ -34,6 +34,7 @@ import { AutocompleteActoresComponent } from './actores/autocomplete-actores/aut
 import { HttpClientModule } from '@angular/common/http';
 import { MostrarErroresComponent } from './utilidades/mostrar-errores/mostrar-errores.component';
 import { PaginatorComponent } from './utilidades/paginator/paginator.component';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 
 @NgModule({
@@ -73,7 +74,8 @@ import { PaginatorComponent } from './utilidades/paginator/paginator.component';
     BrowserAnimationsModule,
     MaterialModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    SweetAlert2Module.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
