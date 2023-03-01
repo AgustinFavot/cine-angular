@@ -1,0 +1,22 @@
+.table {     
+    margin-top: 1rem;
+    max-width: 100px  !important;
+}
+
+.table th {
+    text-align: center;
+}
+
+.table td {
+    text-align: center;
+}
+
+.table td a {
+    margin-right: 1rem;
+    justify-content: center;
+}
+
+span {
+    width: 1rem;
+    align-items: center;
+}

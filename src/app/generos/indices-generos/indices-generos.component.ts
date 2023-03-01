@@ -20,7 +20,7 @@ export class IndicesGenerosComponent implements OnInit{
 
   currentPage = 1;
 
-  displayedColumns: string[] = ['id','nombre'];
+  displayedColumns: string[] = ['id','nombre','acciones'];
 
   @ViewChild(MatTable)
   table!: MatTable<any>;
@@ -33,6 +33,7 @@ export class IndicesGenerosComponent implements OnInit{
 
   cargarRegistrod(pagina: number,cantidadRegistrosMostrar: number ){
     this.service.getAll(pagina, cantidadRegistrosMostrar ).subscribe((response: HttpResponse<generoDTO[]>) => {
+      console.log(response.body)
       this.generos = response.body;
       this.cantidadTotalRegistros = response.headers.get("cantidadTotalRegistros");
       if(this.table !== undefined){
@@ -49,6 +50,7 @@ export class IndicesGenerosComponent implements OnInit{
 
   eliminar(id: number)
   {
+      console.log(id)
       this.service.delete(id).subscribe(() => {
         this.cargarRegistrod(this.currentPage, this.cantidadRegistrosMostrar); 
       }, (error) => console.log(error))

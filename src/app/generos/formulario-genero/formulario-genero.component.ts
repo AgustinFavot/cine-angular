@@ -30,6 +30,11 @@ export class FormularioGeneroComponent implements OnInit{
         validators: [Validators.required, Validators.minLength(5)]
       }]
     });
+    console.log(this.modelo)
+    if(this.modelo !== undefined) {
+      console.log("Ingresa??")
+      this.form.patchValue(this.modelo)
+    }
   }
 
   guardarCambios(){

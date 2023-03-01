@@ -13,7 +13,7 @@ import { generoCreacionDTO, generoDTO } from '../modelo/genero';
 //ver Mostrar Errores Web Api
 export class EditarGenerosComponent implements OnInit{
 
-  modelo: generoDTO;
+  model: generoDTO;
 
   errores: String[] = [];
 
@@ -22,14 +22,17 @@ export class EditarGenerosComponent implements OnInit{
               private activateRoute: ActivatedRoute){}
   
   ngOnInit(): void {
-      let id = parseInt(paramsId(this.activateRoute));
-      this.service.getById(id).subscribe((genero) => {
-        this.modelo = genero;
-      }, (error) => console.log(error))
+      this.activateRoute.params.subscribe(params => {
+        this.service.getById(params['id']).subscribe((genero) => {
+          this.model = genero;
+          console.log(genero)
+        }, (error) => console.log(error))
+      });
+      
   }
   
   guardarCambios(genero: generoCreacionDTO): void {
-    this.service.update(this.modelo.id, genero).subscribe(() => {
+    this.service.update(this.model.id, genero).subscribe(() => {
 
     }, (error) => console.log(error));
   }
