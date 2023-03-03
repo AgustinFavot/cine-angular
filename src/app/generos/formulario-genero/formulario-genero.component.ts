@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { generoCreacionDTO } from '../modelo/genero';
+import { generoCreacionDTO, generoDTO } from '../modelo/genero';
 
 @Component({
   selector: 'app-formulario-genero',
@@ -11,7 +11,9 @@ import { generoCreacionDTO } from '../modelo/genero';
 
 export class FormularioGeneroComponent implements OnInit{
   
-  @Input()
+  form!: FormGroup;
+
+  @Input() //propiedad de una clase como entrada
   modelo: generoCreacionDTO;
 
   @Input()
@@ -20,20 +22,18 @@ export class FormularioGeneroComponent implements OnInit{
   @Output()
   onSubmit: EventEmitter<generoCreacionDTO> = new EventEmitter<generoCreacionDTO>
 
-  form!: FormGroup;
 
   constructor(private formBuilder: FormBuilder){}
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
       nombre: ['', {
-        validators: [Validators.required, Validators.minLength(5)]
+        validators: [Validators.required, Validators.minLength(3)]
       }]
     });
-    console.log(this.modelo)
-    if(this.modelo !== undefined) {
-      console.log("Ingresa??")
-      this.form.patchValue(this.modelo)
+
+    if (this.modelo !== undefined) {
+      this.form.patchValue(this.modelo);
     }
   }
 
@@ -55,3 +55,6 @@ export class FormularioGeneroComponent implements OnInit{
     return '';
   }
 }
+
+
+//interpolación {{}} -> es un mecanismo de Angular de sustitución de una expresión por un valor en una plantilla

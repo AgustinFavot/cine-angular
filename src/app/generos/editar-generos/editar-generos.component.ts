@@ -22,13 +22,13 @@ export class EditarGenerosComponent implements OnInit{
               private activateRoute: ActivatedRoute){}
   
   ngOnInit(): void {
+    console.log('load EditarGenerosComponent')
       this.activateRoute.params.subscribe(params => {
-        this.service.getById(params['id']).subscribe((genero) => {
+        this.service.getById(params['id']).subscribe( genero => {
           this.model = genero;
-          console.log(genero)
+          console.log('app-editar-generos: ', this.model)
         }, (error) => console.log(error))
-      });
-      
+      });      
   }
   
   guardarCambios(genero: generoCreacionDTO): void {
