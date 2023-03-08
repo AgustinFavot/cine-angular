@@ -19,5 +19,5 @@ export class CrearGenerosComponent {
     this.service.create(genero).subscribe(() => {
       this.router.navigate(['/generos'])
     }, error => console.log(error));
-}
+  }
 }
